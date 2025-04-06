@@ -78,6 +78,59 @@ export class MemStorage implements IStorage {
       username: "demo",
       password: "password",
     });
+    
+    // Add sample sheet music for testing
+    const samplePdfBase64 = "JVBERi0xLjcKJeLjz9MKNSAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW50IDEgMCBSIC9MYXN0TW9kaWZpZWQgKEQ6MjAyMzAxMjUxMzU1MDErMDAnMDAnKSAvUmVzb3VyY2VzIDIgMCBSIC9NZWRpYUJveCBbMC4wMDAwMDAgMC4wMDAwMDAgNTk1LjI3NjAwMCA4NDEuODkwMDAwXSAvQ3JvcEJveCBbMC4wMDAwMDAgMC4wMDAwMDAgNTk1LjI3NjAwMCA4NDEuODkwMDAwXSAvQmxlZWRCb3ggWzAuMDAwMDAwIDAuMDAwMDAwIDU5NS4yNzYwMDAgODQxLjg5MDAwMF0gL1RyaW1Cb3ggWzAuMDAwMDAwIDAuMDAwMDAwIDU5NS4yNzYwMDAgODQxLjg5MDAwMF0gL0FydEJveCBbMC4wMDAwMDAgMC4wMDAwMDAgNTk1LjI3NjAwMCA4NDEuODkwMDAwXSAvQ29udGVudHMgNiAwIFIgL1JvdGF0ZSAwIC9Hcm91cCA8PCAvVHlwZSAvR3JvdXAgL1MgL1RyYW5zcGFyZW5jeSAvQ1MgL0RldmljZVJHQiA+PiAvQW5ub3RzIFsgXSAvUERGQSAxID4+CmVuZG9iago2IDAgb2JqCjw8IC9GaWx0ZXIgL0ZsYXRlRGVjb2RlIC9MZW5ndGggMTc0ID4+CnN0cmVhbQp4nJXOvQoCMRAE4P1gud7Z7P7k7vUCKytrQbxGsPMLhCtt1FZfX5F4hfgANjbDxwwRZqb2SCwVBuIRbwEzr/NCsNIZ7jAR1VIjWqo7H51GtOFYmVhb1CvGXKYF+TWZZ61vnQ5p3/Pme2+hOywDDs6cQGpRl1iqd5RDTy5GZ6YO+4m+k3+JO30LJ/3r9wuAuSktCmVuZHN0cmVhbQplbmRvYmoKMSAwIG9iago8PCAvVHlwZSAvUGFnZXMgL0tpZHMgWyA1IDAgUiBdIC9Db3VudCAxID4+CmVuZG9iagozIDAgb2JqCjw8IC9UeXBlIC9GaW5uLXhQREYgL0NyZWF0aW9uRGF0ZSAoRDoyMDIzMDEyNTEzNTUwMSswMCcwMCcpIC9NZXRhZGF0YSA0IDAgUiA+PgplbmRvYmoKNCAwIG9iago8PCAvTGVuZ3RoIDc3OCAvVHlwZSAvTWV0YWRhdGEgL1R5cGUgL01ldGFkYXRhIC9TdWJ0eXBlIC9YTUwgPj4Kc3RyZWFtCjw/eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+CjxIOpYAlkBDAuQP+tF4YRAmNSDAhOA==";
+    
+    this.createSheetMusic({
+      title: "모래 위에 성 (Castle on the Sand)",
+      artist: "더 플레이버스 (The Flavors)",
+      uploadDate: new Date(),
+      fileData: samplePdfBase64,
+      fileType: "application/pdf",
+      tags: ["Pop", "Korean"],
+      userId: 1
+    });
+    
+    this.createSheetMusic({
+      title: "너의 의미 (Your Meaning)",
+      artist: "아이유 (IU)",
+      uploadDate: new Date(),
+      fileData: samplePdfBase64,
+      fileType: "application/pdf",
+      tags: ["Ballad", "Korean"],
+      userId: 1
+    });
+    
+    this.createSheetMusic({
+      title: "Autumn Leaves",
+      artist: "Joseph Kosma",
+      uploadDate: new Date(),
+      fileData: samplePdfBase64,
+      fileType: "application/pdf",
+      tags: ["Jazz", "Standard"],
+      userId: 1
+    });
+    
+    // Create sample setlists
+    const setlist1 = this.createSetlist({
+      name: "버스킹 세트 1 (Busking Set 1)",
+      description: "경복궁 근처 버스킹용 세트리스트",
+      userId: 1
+    });
+    
+    // Add sheets to setlist
+    this.addSheetToSetlist({
+      setlistId: setlist1.id,
+      sheetMusicId: 1,
+      order: 1
+    });
+    
+    this.addSheetToSetlist({
+      setlistId: setlist1.id,
+      sheetMusicId: 2,
+      order: 2
+    });
   }
 
   // User operations
